@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+#userlog {
+  position: absolute;
+  display: none;
+  padding: 0.4em;
+  margin-top: 1.5em;
+  border: 2px solid black;
+  border-radius: 10px;
+  min-width: 5.8em;
+  font-size: 1em;
+  z-index: 3;
+}
+#userlog p{
+  font-size: 20px;
+}
+
+.shopping-header {
+  background-color: #f0f0f0;
+}
+.navi-icons li i {
+  font-size: 2em;
+}
+.rating{
+  font-size: 1.5em;
+}
+.adj-size{
+  font-size: 30px;
+}
+.product-img{
+  max-width: 16.5em;
+}
+.card{
+  width: 17em;
+}
+#search-field{
+  width: 25em;
+  font-size: 20px;
+
+}
+.search-btn{
+  border-style:none;
+  background-color: white;
+}
