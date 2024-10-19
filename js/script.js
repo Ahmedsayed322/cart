@@ -164,13 +164,13 @@ class Search {
 new Page();
 
 new Products();
-Products.addProduct('T-Shirt', 250, '2.9', '../img/product1.jpg');
-Products.addProduct('airpods', 200, '3', '../img/product2.jpg');
-Products.addProduct('hoodie', 150, '4', '../img/product3.jpg');
-Products.addProduct('spray', 350, '1', '../img/product4.jpg');
-Products.addProduct('glasses', 50, '5', '../img/product5.jpg');
-Products.addProduct('cap', 320, '4', '../img/product6.jpg');
-Products.addProduct('bag', 130, '2', '../img/product7.jpg');
-Products.addProduct('shooes', 450, '4', '../img/product8.jpg');
+Products.addProduct('T-Shirt', 250, '2.9', './img/product1.jpg');
+Products.addProduct('airpods', 200, '3', './img/product2.jpg');
+Products.addProduct('hoodie', 150, '4', './img/product3.jpg');
+Products.addProduct('spray', 350, '1', './img/product4.jpg');
+Products.addProduct('glasses', 50, '5', './img/product5.jpg');
+Products.addProduct('cap', 320, '4', './img/product6.jpg');
+Products.addProduct('bag', 130, '2', './img/product7.jpg');
+Products.addProduct('shooes', 450, '4', './img/product8.jpg');
 
 new Search();
