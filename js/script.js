@@ -16,10 +16,10 @@ class Page {
       }
     });
     this.showcart.addEventListener('click', () => {
-      console.log(CartProducts.plotCart());
-      console.log(CartProducts.calcTotalPrice());
-      console.log(CartProducts.ItemsInCart());
-      console.log(CartProducts.totalItemsInCart());
+      // console.log(CartProducts.plotCart());
+      // console.log(CartProducts.calcTotalPrice());
+      // console.log(CartProducts.ItemsInCart());
+      // console.log(CartProducts.totalItemsInCart());
     });
   }
 }
@@ -29,7 +29,6 @@ class Products {
   static id = 0;
   static productlist = document.querySelector('.product-list');
   constructor() {
-   
     Products.plotProducts(Products.all_prducts);
   }
   static addProduct(name, price, rating, image) {
@@ -41,7 +40,6 @@ class Products {
       image: image,
     });
     Products.plotProducts(Products.all_prducts);
-  
   }
   static showProducts() {
     return Products.all_prducts;
@@ -105,6 +103,7 @@ class Products {
 class CartProducts {
   static all_prducts = [];
 
+
   static addProduct(id) {
     let item = Products.all_prducts.find((i) => {
       return id === i.id;
@@ -120,10 +119,66 @@ class CartProducts {
         quantity: 1,
       });
     }
+    this.plotCart();
+  }
+  static deleteitem(id){
+    
+ let index=CartProducts.all_prducts.findIndex((item)=>{
+      return item.id==id
+
+    })
+    if(index!==-1){
+      CartProducts.all_prducts.splice(index,1)
+    }
+    this.plotCart()
+  }
+  static deleteproduct(id) {
+    let index=CartProducts.all_prducts.findIndex((item)=>{
+      return item.id==id
+
+    })
+  if(index!==-1){
+    if(CartProducts.all_prducts[index].quantity===1){
+      CartProducts.all_prducts.splice(index,1)
+     
+      this.plotCart();
+    }
+    else{
+      CartProducts.all_prducts[index].quantity-=1
+     
+      this.plotCart();
+    }
+  }
   }
   static plotCart() {
-    return CartProducts.all_prducts;
+    let cart = document.getElementById('cart-show');
+    let total=document.getElementById("total-price")
+
+    cart.innerHTML = '';
+    CartProducts.all_prducts.forEach((item) => {
+      cart.innerHTML += `<div class="card mb-3 " style="width:100%" >
+                  <div class="cart-content d-flex  ">
+                  <div class="card-product-img me-2">
+                    <img src="${item.image}" alt="" srcset="" style="height:10em">   
+                  </div>
+               <div class="Cart-product-info my-2">
+                <h4>${item.name}</h4>
+                <h5 class="my-2" style="width:100px">price :${item.price}</h5>
+                <div class="d-flex justify-content-between align-content-center">
+                  <button class="border-0" style="font-size: 25px; background-color: transparent;"onclick=CartProducts.deleteproduct(${item.id})><i class='bx bx-minus text-warning' ></i></button>
+                  <p class="text-center m-auto" style="font-size: 20px;">${item.quantity}</p>
+                  <button class="border-0" style="font-size: 25px; background-color: transparent;" onclick=CartProducts.addProduct(${item.id})><i class='bx bx-plus text-success'></i></button>
+                </div>
+               </div>
+               <div class="delete-op position-relative" style="width:13em">
+             <i class='bx bxs-trash float-end  position-absolute' style="bottom:30px;right:20px;font-size:25px;" onclick=CartProducts.deleteitem(${item.id})></i>
+               </div>
+                </div>
+                </div>`;
+    });
+    total.innerHTML=this.calcTotalPrice()
   }
+
   static calcTotalPrice() {
     let total = CartProducts.all_prducts.reduce((a, b) => {
       return a + b.price * b.quantity;
@@ -143,7 +198,6 @@ class CartProducts {
 
 class Search {
   constructor() {
-  
     this.search_btn = document.getElementById('search-btn');
     this.searchInput = document.getElementById('search-field');
     this.hookproducts();
@@ -165,7 +219,7 @@ new Page();
 
 new Products();
 Products.addProduct('T-Shirt', 250, '2.9', './img/product1.jpg');
-Products.addProduct('airpods', 200, '3', './img/product2.jpg');
+Products.addProduct('airpods', 200, '3.5', './img/product2.jpg');
 Products.addProduct('hoodie', 150, '4', './img/product3.jpg');
 Products.addProduct('spray', 350, '1', './img/product4.jpg');
 Products.addProduct('glasses', 50, '5', './img/product5.jpg');

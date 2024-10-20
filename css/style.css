@@ -14,7 +14,7 @@
   font-size: 1em;
   z-index: 3;
 }
-#userlog p{
+#userlog p {
   font-size: 20px;
 }
 
@@ -24,24 +24,37 @@
 .navi-icons li i {
   font-size: 2em;
 }
-.rating{
+.rating {
   font-size: 1.5em;
 }
-.adj-size{
+.adj-size {
   font-size: 30px;
 }
-.product-img{
+.product-img {
   max-width: 16.5em;
 }
-.card{
+.card {
   width: 17em;
 }
-#search-field{
-  width: 25em;
+#search-field {
+  width: auto;
   font-size: 20px;
+}
+.search-btn {
+  border-style: none;
+  background-color: white;
+}
+.grid-sys {
+  display: grid;
+  grid-template-columns: 15fr 5fr;
+}
+@media(max-width:592px){
+  .grid-sys {
+    display: block;
 
 }
-.search-btn{
-  border-style:none;
-  background-color: white;
+  
+}
+.side{
+  background-color: #f0f0f0;
 }
